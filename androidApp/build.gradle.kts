@@ -1,13 +1,15 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.google.playServices)
+    alias(libs.plugins.firebase.crashlytics)
 }
 
 android {
-    namespace = "dev.euryperez.loginsample.android"
+    namespace = "dev.euryperez.loginsample"
     compileSdk = 34
     defaultConfig {
-        applicationId = "dev.euryperez.loginsample.android"
+        applicationId = "dev.euryperez.loginsample"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -45,4 +47,7 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+
+    implementation(project.dependencies.platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlyticsKtx)
 }
