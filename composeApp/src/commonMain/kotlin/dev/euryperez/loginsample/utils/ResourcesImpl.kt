@@ -11,6 +11,5 @@ class ResourcesImpl : Resources {
 
 @OptIn(ExperimentalResourceApi::class)
 private class DrawablesImpl : Drawables {
-    override val googleIcon: DrawableResource
-        get() = Res.drawable.ic_google
+    override val googleIcon = Res.drawable.ic_google
 }
