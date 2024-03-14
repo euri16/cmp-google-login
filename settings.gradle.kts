@@ -17,3 +17,5 @@ dependencyResolutionManagement {
 rootProject.name = "CMP_Google_Login"
 include(":androidApp")
 include(":composeApp")
+include(":signin")
+include(":utils")

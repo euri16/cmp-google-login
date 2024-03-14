@@ -1,36 +1,35 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'composeApp'
+    spec.name                     = 'signin'
     spec.version                  = '1.0'
     spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Some description for the Shared Module'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/composeApp.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/signin.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '16.0'
-    spec.dependency 'FirebaseCore'
-    spec.dependency 'GoogleSignIn'
                 
-    if !Dir.exist?('build/cocoapods/framework/composeApp.framework') || Dir.empty?('build/cocoapods/framework/composeApp.framework')
+                
+    if !Dir.exist?('build/cocoapods/framework/signin.framework') || Dir.empty?('build/cocoapods/framework/signin.framework')
         raise "
 
-        Kotlin framework 'composeApp' doesn't exist yet, so a proper Xcode project can't be generated.
+        Kotlin framework 'signin' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
 
-            ./gradlew :composeApp:generateDummyFramework
+            ./gradlew :signin:generateDummyFramework
 
         Alternatively, proper pod installation is performed during Gradle sync in the IDE (if Podfile location is set)"
     end
                 
     spec.pod_target_xcconfig = {
-        'KOTLIN_PROJECT_PATH' => ':composeApp',
-        'PRODUCT_MODULE_NAME' => 'composeApp',
+        'KOTLIN_PROJECT_PATH' => ':signin',
+        'PRODUCT_MODULE_NAME' => 'signin',
     }
                 
     spec.script_phases = [
         {
-            :name => 'Build composeApp',
+            :name => 'Build signin',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT
@@ -47,5 +46,5 @@ Pod::Spec.new do |spec|
             SCRIPT
         }
     ]
-    spec.resources = ['build/compose/ios/composeApp/compose-resources']
+                
 end

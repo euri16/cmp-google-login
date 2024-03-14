@@ -22,26 +22,16 @@ kotlin {
         homepage = "Link to the Shared Module homepage"
         version = "1.0"
         ios.deploymentTarget = "16.0"
-        podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "composeApp"
+            baseName = "utils"
             isStatic = true
         }
-        pod("GoogleSignIn") { linkOnly = true}
-        pod("FirebaseCore") { linkOnly = true }
     }
     
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":signin"))
-            implementation(project(":utils"))
-
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
             implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
+            implementation(compose.runtime)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -50,7 +40,7 @@ kotlin {
 }
 
 android {
-    namespace = "dev.euryperez.loginsample"
+    namespace = "dev.euryperez.loginsample.utils"
     compileSdk = 34
     defaultConfig {
         minSdk = 26

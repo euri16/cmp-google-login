@@ -6,10 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "dev.euryperez.loginsample"
+    namespace = "dev.euryperez.loginsample.android"
     compileSdk = 34
+
     defaultConfig {
-        applicationId = "dev.euryperez.loginsample"
+        applicationId = "dev.euryperez.loginsample.android"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
