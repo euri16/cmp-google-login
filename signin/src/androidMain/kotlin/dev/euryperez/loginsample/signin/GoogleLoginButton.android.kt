@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import dev.euryperez.loginsample.signin.models.AuthResponse
@@ -31,21 +32,9 @@ internal actual fun GoogleLoginButton(
         rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             try {
                 val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-                val account = task.getResult(ApiException::class.java)!!
+                val account = task.getResult(ApiException::class.java)
 
-                val googleAccount = GoogleAccount(
-                    idToken = account.idToken.toString(),
-                    accessToken = account.serverAuthCode.toString(),
-                    profile = Profile(
-                        name = account.displayName.orEmpty(),
-                        familyName = account.familyName.orEmpty(),
-                        givenName = account.givenName.orEmpty(),
-                        email = account.email.orEmpty(),
-                        picture = account.photoUrl?.toString().orEmpty()
-                    ),
-                )
-
-                onResponse(AuthResponse.Success(googleAccount))
+                onResponse(AuthResponse.Success(account.googleAccount))
             } catch (e: ApiException) {
                 if (result.resultCode == Activity.RESULT_CANCELED) {
                     AuthResponse.Cancelled
@@ -62,6 +51,19 @@ internal actual fun GoogleLoginButton(
         onClick = { launcher.launch(googleSignInClient.signInIntent) },
     )
 }
+
+private val GoogleSignInAccount.googleAccount: GoogleAccount
+    get() = GoogleAccount(
+        idToken = idToken.orEmpty(),
+        accessToken = serverAuthCode.orEmpty(),
+        profile = Profile(
+            name = displayName.orEmpty(),
+            familyName = familyName.orEmpty(),
+            givenName = givenName.orEmpty(),
+            email = email.orEmpty(),
+            picture = photoUrl?.toString().orEmpty()
+        ),
+    )
 
 private val ApiException.fullErrorMessage: String
     get() {
