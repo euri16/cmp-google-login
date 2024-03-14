@@ -19,7 +19,10 @@ internal expect fun GoogleLoginButton(
 )
 
 @Composable
-fun GoogleButton(onResponse: (AuthResponse) -> Unit, modifier: Modifier = Modifier) {
+fun GoogleButton(
+    onResponse: (AuthResponse) -> Unit,
+    modifier: Modifier = Modifier
+) {
     val coroutineScope = rememberCoroutineScope()
 
     GoogleLoginButton(

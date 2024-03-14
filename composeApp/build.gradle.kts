@@ -34,6 +34,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":signin"))
+            implementation(project(":utils"))
 
             implementation(compose.runtime)
             implementation(compose.foundation)

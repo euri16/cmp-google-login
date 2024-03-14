@@ -14,8 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import cmp_google_login.signin.generated.resources.Res
-import cmp_google_login.signin.generated.resources.ic_google
+import dev.euryperez.loginsample.utils.compositionlocals.LocalResources
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -37,11 +36,11 @@ internal fun GoogleButtonUI(
         border = BorderStroke(1.dp, Color.LightGray),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp)
     ) {
-        /*Image(
+        Image(
             modifier = Modifier.size(24.dp),
-            painter = painterResource(Res.drawable.ic_google),
+            painter = painterResource(LocalResources.current.drawables.googleIcon),
             contentDescription = null
-        )*/
+        )
         Spacer(modifier = Modifier.width(8.dp))
         Text("Continue with Google")
     }

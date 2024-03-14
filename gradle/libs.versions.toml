@@ -1,10 +1,10 @@
 [versions]
 agp = "8.2.0"
-kotlin = "1.9.20"
+kotlin = "1.9.22"
 compose = "1.5.4"
-compose-compiler = "1.5.4"
+compose-compiler = "1.5.10"
 compose-material3 = "1.1.2"
-androidx-activityCompose = "1.8.0"
+androidx-activityCompose = "1.8.2"
 firebase-bom = "32.7.4"
 firebase-crashlytics-plugin = "2.9.9"
 google-play-services = "4.4.1"

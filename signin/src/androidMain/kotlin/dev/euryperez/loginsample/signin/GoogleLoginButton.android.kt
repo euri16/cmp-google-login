@@ -20,7 +20,7 @@ internal actual fun GoogleLoginButton(
     modifier: Modifier
 ) {
     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestIdToken("20688023892-evcroc2eul83vh6s8utotf3u3jascl2n.apps.googleusercontent.com")
+        .requestIdToken("PLACE_YOUR_CLIENT_ID_HERE")
         .requestEmail()
         .build()
 

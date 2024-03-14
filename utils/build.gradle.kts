@@ -22,39 +22,17 @@ kotlin {
         homepage = "Link to the Shared Module homepage"
         version = "1.0"
         ios.deploymentTarget = "16.0"
-
-        noPodspec()
-
         framework {
-            baseName = "signin"
+            baseName = "utils"
             isStatic = true
         }
-
-        pod("GoogleSignIn")
     }
-
+    
     sourceSets {
-        androidMain.dependencies {
-            implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.androidx.activity.compose)
-
-            implementation(libs.play.services.auth)
-        }
-
         commonMain.dependencies {
-            implementation(project(":utils"))
-
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
             implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-
-            implementation(libs.firebase.gitlive.common)
-            implementation(libs.firebase.gitlive.auth)
+            implementation(compose.runtime)
         }
-
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
@@ -62,7 +40,7 @@ kotlin {
 }
 
 android {
-    namespace = "dev.euryperez.loginsample.signin"
+    namespace = "dev.euryperez.loginsample.utils"
     compileSdk = 34
     defaultConfig {
         minSdk = 26
