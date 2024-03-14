@@ -21,14 +21,14 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>PLACE_YOUR_REVERSED_CLIENT_ID_HERE</string>
+				<string>com.googleusercontent.apps.20688023892-rfpajq7ebjmq3kuldmssaptjh3aqd0b5</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>GIDClientID</key>
-	<string>PLACE_YOUR_CLIENT_ID_HERE</string>
+	<string>20688023892-rfpajq7ebjmq3kuldmssaptjh3aqd0b5.apps.googleusercontent.com</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

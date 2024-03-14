@@ -9,6 +9,8 @@ firebase-bom = "32.7.4"
 firebase-crashlytics-plugin = "2.9.9"
 google-play-services = "4.4.1"
 compose-plugin = "1.6.0"
+playServicesAuth = "21.0.0"
+gitlive-firebase = "1.10.4"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -21,6 +23,11 @@ compose-material3 = { module = "androidx.compose.material3:material3", version.r
 
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
 firebase-crashlyticsKtx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+
+firebase-gitlive-common = { module = "dev.gitlive:firebase-common", version.ref = "gitlive-firebase" }
+firebase-gitlive-auth = { module = "dev.gitlive:firebase-auth", version.ref = "gitlive-firebase" }
+
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

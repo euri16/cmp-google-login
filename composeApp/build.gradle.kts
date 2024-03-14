@@ -27,11 +27,14 @@ kotlin {
             baseName = "composeApp"
             isStatic = true
         }
+        pod("GoogleSignIn") { linkOnly = true}
         pod("FirebaseCore") { linkOnly = true }
     }
     
     sourceSets {
         commonMain.dependencies {
+            implementation(project(":signin"))
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
