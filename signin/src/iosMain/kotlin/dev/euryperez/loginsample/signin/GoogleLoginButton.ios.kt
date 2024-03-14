@@ -31,13 +31,11 @@ private fun googleLogin(
     onLoggedIn: (AuthResponse) -> Unit
 ) {
     GIDSignIn.sharedInstance.signInWithPresentingViewController(uiViewController) { result, error ->
-        if (result == null) {
-            onLoggedIn(AuthResponse.Error(error?.fullErrorMessage ?: "Unknown error"))
-            println("Error: $error")
-            return@signInWithPresentingViewController
+        when {
+            result != null -> onLoggedIn(AuthResponse.Success(result.toGoogleAccount))
+            error != null -> onLoggedIn(AuthResponse.Error(error.fullErrorMessage))
+            else -> onLoggedIn(AuthResponse.Cancelled)
         }
-
-        onLoggedIn(AuthResponse.Success(result.toGoogleAccount))
     }
 }
 
